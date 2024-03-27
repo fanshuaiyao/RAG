@@ -49,10 +49,9 @@ print(f"Object Size: {object_size} bytes")
 print(len(pages_splitter))
 # print(pages_splitter)
 
-# api_key = "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"
-# os.environ["OPENAI_API_KEY"] = api_key
 
-api_key = "sk-Yaxfgnab670mCBVn0dC084E40a6f4bE3BeA5DbC82e292a79"
+
+api_key = "sk...."
 # os.environ["OPENAI_API_KEY"] = api_key
 
 
