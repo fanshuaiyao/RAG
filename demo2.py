@@ -33,7 +33,7 @@ print(f"Object Size: {object_size} bytes")
 print(len(pages_splitter))
 # print(pages_splitter)
 
-api_key = "sk-Yaxfgnab670mCBVn0dC084E40a6f4bE3BeA5DbC82e292a79"
+# api_key = "sk-Yaxfgnab670mCBVn0dC084E40a6f4bE3BeA5DbC82e292a79"
 
 vectorstore = Chroma.from_documents(
     pages_splitter,
