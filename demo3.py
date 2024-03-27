@@ -3,7 +3,7 @@ import httpx
 
 client = OpenAI(
     base_url="https://oneapi.xty.app/v1",
-    api_key="sk-Yaxfgnab670mCBVn0dC084E40a6f4bE3BeA5DbC82e292a79",
+    api_key="sk....",
     http_client=httpx.Client(
         base_url="https://oneapi.xty.app/v1",
         follow_redirects=True,

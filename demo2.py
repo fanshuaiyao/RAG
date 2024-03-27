@@ -1,5 +1,3 @@
-# 这是一个RAG项目，实现对pdf的分割，相似度匹配和重排序，然后将得分最高的提示词喂给大模型
-
 # reranker rag
 import sys
 
@@ -35,14 +33,13 @@ print(f"Object Size: {object_size} bytes")
 print(len(pages_splitter))
 # print(pages_splitter)
 
-# api_key = "sk-Yaxfgnab670mCBVn0dC084E40a6f4bE3BeA5DbC82e292a79"
+# api_key = "sk...."
 
 vectorstore = Chroma.from_documents(
     pages_splitter,
-    # embedding=OpenAIEmbeddings(openai_api_key=api_key, base_url="https://oneapi.xty.app/v1"),
+    embedding=OpenAIEmbeddings(openai_api_key=api_key, base_url="https://oneapi.xty.app/v1"),
 )
 
-# 这里可以修改问题
 query = "根据采集信号的不同，基于WiFi的室内定位技术可分为哪两种？"
 docs = vectorstore.similarity_search(query)
 docs_and_scores = vectorstore.similarity_search_with_score(query)
@@ -62,8 +59,6 @@ print(docs[3].page_content)
 
 print()
 
-
-# 重排序
 # reranker = FlagReranker('BAAI/bge-reranker-base', use_fp16=True)  # use fp16 can speed up computing
 reranker = FlagReranker('BAAI/bge-reranker-large', use_fp16=True)
 # print(11111111111)
@@ -73,8 +68,6 @@ scores = reranker.compute_score([[query, docs[0].page_content], [query, docs[1].
 
 print(scores)
 
-
-# 得到最大分数的切片
 value = max(scores)
 score_index = scores.index(max(scores))
 print(docs[score_index].page_content)
@@ -86,7 +79,7 @@ import httpx
 
 client = OpenAI(
     base_url="https://oneapi.xty.app/v1",
-    api_key="sk-Yaxfgnab670mCBVn0dC084E40a6f4bE3BeA5DbC82e292a79",
+    api_key="sk...",
     http_client=httpx.Client(
         base_url="https://oneapi.xty.app/v1",
         follow_redirects=True,
