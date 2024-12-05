@@ -13,7 +13,7 @@ from openai import OpenAI
 # 支持同步和异步操作，用于执行HTTP请求，与OpenAI或其他HTTP API进行通信。
 import httpx
 
-# 导入自定义的FlagReranker类，用于对检索结果进行重新排序评分
+# 导入FlagReranker类，用于对检索结果进行重新排序评分
 from FlagEmbedding import FlagReranker
 
 # 导入langchain库中的RecursiveCharacterTextSplitter类，用于递归字符级别的文本分割
